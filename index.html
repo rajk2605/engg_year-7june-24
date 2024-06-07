@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title> Engg. App By Raj </title>
+	<style>
+		*{font-size:30px}
+		body{background-color:lightblue;}
+		.btn{width:20%;}
+	</style>
+</title>
+</head>
+
+<body>
+<center>
+	<h1> Engg App </h1>
+	<form onsubmit="show()">
+		<label for="name">Name:</label>
+		<input type="text" placeholder="Enter Your Name" id="name" />
+		<br><br>
+			<label for="year"> Select Engg. Year: </label>
+			<select id="year">
+				<option value="1st" >1st</option>
+				<option value="2nd" >2nd</option>
+				<option value="3rd" >3rd</option>
+				<option value="4th" >4th</option>
+			</select>
+		<br><br>
+		<input type="submit" class="btn" />
+
+	</form>
+	<h2 id="msg" />
+
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let year = document.getElementById("year");	
+			let msg = document.getElementById("msg");
+
+
+			if (name.value == "")
+			{
+			alert("Name cannot be Blank");
+			msg.innerHTML ="";
+			name.focus();
+			return;
+			}	
+
+			if (name.value.trim() == "")
+			{
+			alert("Name cannot be Blank Spaces");
+			msg.innerHTML ="";
+			name.value ="";
+			name.focus();
+			return;
+			}	
+
+			if (!name.value.match(/^[A-Za-z ]+$/))
+			{
+			alert("Name can contain only alphabets");
+			msg.innerHTML ="";
+			name.value ="";
+			name.focus();
+			return;
+			}
+
+
+			let ans = "Name = " + name.value + "Year =" + year.value;
+			msg.innerHTML = ans;
+
+
+		}
+
+	</script>
+
+</body>
+</center>
+</html>
